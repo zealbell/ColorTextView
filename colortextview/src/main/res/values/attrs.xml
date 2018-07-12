@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="ColorTextView">
+        <attr name="Sentence" format="string"/>
+        <attr name="Colours" format="string"/>
+    </declare-styleable>
+</resources>
