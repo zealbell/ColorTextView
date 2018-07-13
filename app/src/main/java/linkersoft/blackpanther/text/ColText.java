@@ -1,4 +1,4 @@
-package linkersoft.blackpanther.colortextview;
+package linkersoft.blackpanther.text;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

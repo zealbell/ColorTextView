@@ -1,4 +1,4 @@
-package linkersoft.blackpanther.colortextview;
+package linkersoft.blackpanther.text;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -32,27 +32,13 @@ public class ColorTextView extends TextView {
         in(context, attrs);
         if(!textstatement.contains("null"))setText(textstatement, colorstatement);
     }
-    String ColoredhtmlString(String text, String color){
+    private String ColoredhtmlString(String text, String color){
         return "<font color="+color+">"+text+"</font>";
     }
-    String boldhtmlString(String text){
+    private String boldhtmlString(String text){
         return "<b>"+text+"</b>";
     }
-    public void setText(String textstatement, String colorstatement){
-        String words[]=textstatement.split("#"), colors[]=colorstatement.split(":"), coloredSentence="",wrd;
-        for(int i=0; i<words.length; i++){
-            wrd=ColoredhtmlString(words[i], colors[i]);
-            if(wrd.contains("}")) wrd=wrd.replace('}', '#');
-            if(wrd.contains("%")) wrd=boldhtmlString(wrd.split("%")[0]);
-            coloredSentence+=wrd;
-        }setText(Html.fromHtml(coloredSentence));
-        pureString=""+getText();
-
-    }
-    public void resetColors(String colorstatement){
-        setText(textstatement,colorstatement);
-    }
-    void in(Context context, AttributeSet attrs){
+    private void in(Context context, AttributeSet attrs){
         TypedArray _attrs=context.getTheme().obtainStyledAttributes(attrs, R.styleable.ColorTextView, 0, 0);
         try{
             textstatement=_attrs.getString(R.styleable.ColorTextView_Sentence);
@@ -77,7 +63,19 @@ public class ColorTextView extends TextView {
     public void unHighlight(){
         Highlight("", Color.BLACK);
     }
+    public void setText(String textStatement, String colorStatement){
+        String words[]=textStatement.split("#"), colors[]=colorStatement.split(":"), coloredSentence="",wrd;
+        for(int i=0; i<words.length; i++){
+            wrd=ColoredhtmlString(words[i], colors[i]);
+            if(wrd.contains("}")) wrd=wrd.replace('}', '#');
+            if(wrd.contains("%")) wrd=boldhtmlString(wrd.split("%")[0]);
+            coloredSentence+=wrd;
+        }setText(Html.fromHtml(coloredSentence));
+        pureString=""+getText();
 
-
+    }
+    public void resetColors(String colorStatement){
+        setText(textstatement,colorStatement);
+    }
 
 }

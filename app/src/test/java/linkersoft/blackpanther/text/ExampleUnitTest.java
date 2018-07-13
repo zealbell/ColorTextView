@@ -1,4 +1,4 @@
-package linkersoft.blackpanther.colortextview;
+package linkersoft.blackpanther.text;
 
 import org.junit.Test;
 
