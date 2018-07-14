@@ -17,7 +17,7 @@ A MultiColor-TextView for having texts of different colors in the same TextView 
 > Gradle
 ```xml
    dependencies {
-      compile 'com.github.54LiNKeR:ColorTextView:1.0.0'
+      implementation 'com.github.54LiNKeR:ColorTextView:1.0.0'
    }
 ```
 > Layout
