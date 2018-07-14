@@ -78,4 +78,8 @@ public class ColorTextView extends TextView {
         setText(textstatement,colorStatement);
     }
 
+    @Override
+    public String toString() {
+        return "@LiNKeR(>_<)~"+super.toString();
+    }
 }
